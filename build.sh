@@ -12,6 +12,11 @@ else
   pip install ./dist/ansible-modules-hashivault-*.tar.gz
 fi
 
-cd functional
-./run.sh
+# execute tests only if we have docker installed
+if [ docker ]; then
+  cd functional
+  ./run.sh
+  cd ..
+fi
+
 rm -rf .testenv
