@@ -13,7 +13,7 @@ else
 fi
 
 # execute tests only if we have docker installed
-if [ docker ]; then
+if [ $(which docker 2> /dev/null) ]; then
   cd functional
   ./run.sh
   cd ..
